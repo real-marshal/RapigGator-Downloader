@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "RapidGator Downloader",
+  "version": "1.0.0",
+  "description": "Download sequentially files from RapidGator folders or using a list of links",
+  "permissions": ["*://*.rapidgator.net/*", "cookies", "downloads", "contextMenus"],
+  "icons": {
+    "48": "rg.png"
+  },
+  "background": {
+    "scripts": ["main.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://rapidgator.net/folder/*"],
+      "js": ["rg_folder.js"]
+    },
+    {
+      "matches": ["*://rapidgator.net/*"],
+      "js": ["rg_list.js"]
+    }
+  ]
+}
